@@ -79,6 +79,13 @@ public class TwoFHeyOTPParser: OTPParser {
             return ParsedOTP(service: "google", code: googleOTP)
         }
         
+        for customPattern in config.customPatterns {
+            if let matchedCode = customPattern.matcherPattern.firstCaptureGroupInString(lowercaseMessage) {
+                print("Custom pattern matched. Service: \(customPattern.serviceName ?? "Unknown"), Code: \(matchedCode)")
+                return ParsedOTP(service: customPattern.serviceName, code: matchedCode)
+            }
+        }
+      
         let service = inferServiceFromMessage(message)
         print("Inferred Service: \(service ?? "Unknown")")
         
@@ -87,13 +94,6 @@ public class TwoFHeyOTPParser: OTPParser {
             OTPParserConstants.CodeMatchingRegularExpressions.dashedThreeAndThree,
             OTPParserConstants.CodeMatchingRegularExpressions.alphanumericWordContainingDigits,
         ]
-        
-        for customPattern in config.customPatterns {
-            if let matchedCode = customPattern.matcherPattern.firstCaptureGroupInString(lowercaseMessage) {
-                print("Custom pattern matched. Service: \(customPattern.serviceName ?? "Unknown"), Code: \(matchedCode)")
-                return ParsedOTP(service: customPattern.serviceName, code: matchedCode)
-            }
-        }
         
         for regex in standardRegExps {
             let matches = regex.matchesInString(lowercaseMessage)
