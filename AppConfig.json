@@ -109,7 +109,8 @@
       "amex",
       "sia",
       "fanduel",
-      "cart"
+      "cart",
+      "fortuneo"
    ],
    "servicePatterns": [
       "\\bfor\\s+your\\s+([\\w\\d ]{2,64})\\s+account\\b",
@@ -220,7 +221,7 @@
       "\\b([\\w\\d]{3,64})\\s+login\\s+code\\b",
       "\\b([\\w\\d]{3,64})\\s+login\\s+number\\b",
       "\\b([\\w\\d]{3,64})\\s+login\\s+pin\\b",
-      "\\b([\\w\\d]{3,64})(?!votre)\\s+code\\b",
+      "\\b([\\w\\d]{3,64})(?!votre|ton)\\s+code\\b",
       "\\b([\\w\\d]{3,64})\\s+number\\b",
       "\\b([\\w\\d]{3,64})\\s+pin\\b",
       "【([\\u4e00-\\u9fa5\\d\\w]+)"
@@ -228,7 +229,7 @@
    "customPatterns": [
       {
          "serviceName": "Fortuneo",
-         "matcherPattern": "\\b\\d{6} est votre code fortuneo pour",
+         "matcherPattern": "\\b(\\d{6}) est votre code fortuneo pour",
          "codeExtractorPattern": "(\\d{6})"
       },
       {
