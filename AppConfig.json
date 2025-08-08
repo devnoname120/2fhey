@@ -229,7 +229,7 @@
    "customPatterns": [
       {
          "serviceName": "Fortuneo",
-         "matcherPattern": "\\b\\d{6} est votre code Fortuneo pour",
+         "matcherPattern": "\\b\\d{6} est votre code fortuneo pour",
          "codeExtractorPattern": "(\\d{6})"
       },
       {
