@@ -109,8 +109,7 @@
       "amex",
       "sia",
       "fanduel",
-      "cart",
-      "fortuneo"
+      "cart"
    ],
    "servicePatterns": [
       "\\bfor\\s+your\\s+([\\w\\d ]{2,64})\\s+account\\b",
@@ -221,7 +220,7 @@
       "\\b([\\w\\d]{3,64})\\s+login\\s+code\\b",
       "\\b([\\w\\d]{3,64})\\s+login\\s+number\\b",
       "\\b([\\w\\d]{3,64})\\s+login\\s+pin\\b",
-      "\\b([\\w\\d]{3,64})\\s+code\\b",
+      "\\b([\\w\\d]{3,64})(?!votre)\\s+code\\b",
       "\\b([\\w\\d]{3,64})\\s+number\\b",
       "\\b([\\w\\d]{3,64})\\s+pin\\b",
       "【([\\u4e00-\\u9fa5\\d\\w]+)"
